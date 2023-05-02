@@ -39,17 +39,17 @@ const containerThumbs = document.querySelector('.thumbs');
 for (let i = 0; i < arrayImage.length; i++) {
 	containerHighlighted.innerHTML += `
     
-        <img src="${arrayImage[i].image}" alt="" class="${i == 0 ? 'active' : ''}">
-        <div class="title active">${arrayImage[i].title} ${i == 0 ? 'active' : ''}</div> 
-        <div class="text active"> ${arrayImage[i].text}  ${i == 0 ? 'active' : ''}</div>`;
-
-	containerThumbs.innerHTML += `<img src="${arrayImage[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
+        <img src="${arrayImage[i].image}" alt=""  class="${i == 0 ? 'active' : ''}">
+        <div class="title ${i == 0 ? 'active' : ''} ">${arrayImage[i].title} </div>
+        <div class="text ${i == 0 ? 'active' : ''}"> ${arrayImage[i].text}  </div>`;
+        
+        containerThumbs.innerHTML += `<img src="${arrayImage[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
 }
 
 
 // selezionimo le immagini nell'html
-const title = document.querySelector('.title');
-const text = document.querySelector('.text');
+const title = document.querySelectorAll('.title');
+const text = document.querySelectorAll('.text');
 const listHighlighted = document.querySelectorAll('.highlighted img');
 // selezioniamo le miniature
 const listThumbs = document.querySelectorAll('.thumbs img');

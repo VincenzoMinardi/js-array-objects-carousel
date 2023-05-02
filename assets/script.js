@@ -40,8 +40,8 @@ for (let i = 0; i < arrayImage.length; i++) {
 	containerHighlighted.innerHTML += `
     
         <img src="${arrayImage[i].image}" alt="" class="${i == 0 ? 'active' : ''}">
-        <div class="title">${arrayImage[i].title} class="${i == 0 ? 'active' : ''}</div> 
-        <div class="text"> ${arrayImage[i].text} class="${i == 0 ? 'active' : ''}</div>`;
+        <div class="title active">${arrayImage[i].title} ${i == 0 ? 'active' : ''}</div> 
+        <div class="text active"> ${arrayImage[i].text}  ${i == 0 ? 'active' : ''}</div>`;
 
 	containerThumbs.innerHTML += `<img src="${arrayImage[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
 }
@@ -65,6 +65,8 @@ let activeIndex = 0;
 btnNext.addEventListener('click',
 	function() {
 		// dall'immagine attiva tolgo la classe active
+        title[activeIndex].classList.remove('active');
+		text[activeIndex].classList.remove('active');
         listHighlighted[activeIndex].classList.remove('active');
 		listThumbs[activeIndex].classList.remove('active');
 		// settiamo il nuovo valore di active index
@@ -73,6 +75,8 @@ btnNext.addEventListener('click',
 			activeIndex = 0;
 		}
 		// alla nuova immagine attiva aggiungiamo la classe active
+        title[activeIndex].classList.add('active');
+		text[activeIndex].classList.add('active');
         listHighlighted[activeIndex].classList.add('active');
 		listThumbs[activeIndex].classList.add('active');
 	}
@@ -81,6 +85,8 @@ btnNext.addEventListener('click',
 btnPrev.addEventListener('click',
 	function() {
 		// dall'immagine attiva tolgo la classe active
+        title[activeIndex].classList.remove('active');
+		text[activeIndex].classList.remove('active');
         listHighlighted[activeIndex].classList.remove('active');
 		listThumbs[activeIndex].classList.remove('active');
        
@@ -91,7 +97,8 @@ btnPrev.addEventListener('click',
 		}
 		// alla nuova immagine attiva aggiungiamo la classe active
         
-       
+        title[activeIndex].classList.add('active');
+		text[activeIndex].classList.add('active');
 		listHighlighted[activeIndex].classList.add('active');
 		listThumbs[activeIndex].classList.add('active');
 	}
@@ -102,10 +109,16 @@ for (let i = 0; i < listThumbs.length; i++) {
 	listThumbs[i].addEventListener('click',
 		function() {
 			console.log('cliccata la miniature in posizione ' + i)
-          
+            
+            title[activeIndex].classList.remove('active');
+            text[activeIndex].classList.remove('active');
 			listHighlighted[activeIndex].classList.remove('active');
 			listThumbs[activeIndex].classList.remove('active');
-			activeIndex = i;
+			
+            activeIndex = i;
+            
+            title[activeIndex].classList.add('active');
+		    text[activeIndex].classList.add('active');
             listHighlighted[activeIndex].classList.add('active');
 			listThumbs[activeIndex].classList.add('active');
 		}

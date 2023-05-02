@@ -41,9 +41,13 @@
 	object-fit: cover;
 }
 
-/* .title , .text{
+ .title, .text{
     display: none;
-} */
+}
+
+.title.active,.text.active{
+    display: block;
+}
 
 
 

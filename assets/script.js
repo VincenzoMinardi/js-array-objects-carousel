@@ -40,8 +40,8 @@ for (let i = 0; i < arrayImage.length; i++) {
 	containerHighlighted.innerHTML += `
     
         <img src="${arrayImage[i].image}" alt="" class="${i == 0 ? 'active' : ''}">
-        <div class="title">${arrayImage[i].title}</div> 
-        <div class="text"> ${arrayImage[i].text}</div>`;
+        <div class="title">${arrayImage[i].title} class="${i == 0 ? 'active' : ''}</div> 
+        <div class="text"> ${arrayImage[i].text} class="${i == 0 ? 'active' : ''}</div>`;
 
 	containerThumbs.innerHTML += `<img src="${arrayImage[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
 }
@@ -65,8 +65,7 @@ let activeIndex = 0;
 btnNext.addEventListener('click',
 	function() {
 		// dall'immagine attiva tolgo la classe active
-       
-		listHighlighted[activeIndex].classList.remove('active');
+        listHighlighted[activeIndex].classList.remove('active');
 		listThumbs[activeIndex].classList.remove('active');
 		// settiamo il nuovo valore di active index
 		activeIndex++;
@@ -74,8 +73,7 @@ btnNext.addEventListener('click',
 			activeIndex = 0;
 		}
 		// alla nuova immagine attiva aggiungiamo la classe active
-       
-		listHighlighted[activeIndex].classList.add('active');
+        listHighlighted[activeIndex].classList.add('active');
 		listThumbs[activeIndex].classList.add('active');
 	}
 );
@@ -83,15 +81,16 @@ btnNext.addEventListener('click',
 btnPrev.addEventListener('click',
 	function() {
 		// dall'immagine attiva tolgo la classe active
-        
-		listHighlighted[activeIndex].classList.remove('active');
+        listHighlighted[activeIndex].classList.remove('active');
 		listThumbs[activeIndex].classList.remove('active');
+       
 		// settiamo il nuovo valore di active index
 		activeIndex--;
 		if (activeIndex < 0) {
 			activeIndex = listHighlighted.length - 1;
 		}
 		// alla nuova immagine attiva aggiungiamo la classe active
+        
        
 		listHighlighted[activeIndex].classList.add('active');
 		listThumbs[activeIndex].classList.add('active');

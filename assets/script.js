@@ -30,19 +30,20 @@ const arrayImage = [
         title: "Marvel's Avengers",
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
-];
+];  
 
-
-
-let BtnNormal = setInterval(() => {
+setInterval(() => {
+    title[activeIndex].classList.remove('active');
+	text[activeIndex].classList.remove('active');
     listHighlighted[activeIndex].classList.remove('active');
     listThumbs[activeIndex].classList.remove('active');
-    // settiamo il nuovo valore di active index
+   
     activeIndex++;
     if (activeIndex >= listHighlighted.length) {
         activeIndex = 0;
     }
-    // alla nuova immagine attiva aggiungiamo la classe active
+    title[activeIndex].classList.add('active');
+	text[activeIndex].classList.add('active');
     listHighlighted[activeIndex].classList.add('active');
     listThumbs[activeIndex].classList.add('active');
 }, 2000);
@@ -55,7 +56,7 @@ for (let i = 0; i < arrayImage.length; i++) {
 	containerHighlighted.innerHTML += `
     
         <img src="${arrayImage[i].image}" alt=""  class="${i == 0 ? 'active' : ''}">
-        <div class="title ${i == 0 ? 'active' : ''} ">${arrayImage[i].title} </div>
+        <div class="title ${i == 0 ? 'active' : ''}"> ${arrayImage[i].title} </div>
         <div class="text ${i == 0 ? 'active' : ''}"> ${arrayImage[i].text}  </div>`;
         
         containerThumbs.innerHTML += `<img src="${arrayImage[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
